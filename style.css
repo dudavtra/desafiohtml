@@ -1,113 +1,214 @@
 
-/* Configurações Globais */
+/* Importação de fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Reset e variáveis de cores */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f3effa;
-    color: #2a2438;
+:root {
+    --bg-main: #f4f0fa;
+    --card-bg: #ffffff;
+    --primary: #5c3b8e;
+    --primary-hover: #482c72;
+    --accent: #8b5cf6;
+    --text-main: #231934;
+    --text-muted: #5e5274;
+    --border-color: #e5dcf5;
+    --shadow: 0 10px 25px -5px rgba(92, 59, 142, 0.08), 0 8px 10px -6px rgba(92, 59, 142, 0.04);
 }
 
-/* Cabeçalho */
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding-bottom: 2rem;
+}
+
+/* Header estilizado com gradiente */
 header {
-    background: linear-gradient(135deg, #4a306d, #6c4ab6);
+    background: linear-gradient(135deg, #43286b 0%, #6d44ad 100%);
     color: #ffffff;
     text-align: center;
-    padding: 3rem 1rem;
-    box-shadow: 0 4px 10px rgba(74, 48, 109, 0.2);
+    padding: 4.5rem 1.5rem 4rem;
+    box-shadow: 0 4px 20px rgba(67, 40, 107, 0.15);
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
 }
 
 header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    font-size: 1.15rem;
+    color: #e8dcfc;
+    font-weight: 400;
 }
 
-/* Conteúdo Principal */
+/* Layout do conteúdo principal */
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    max-width: 820px;
+    margin: -1.5rem auto 0;
+    padding: 0 1.25rem;
 }
 
+/* Cards das seções */
 section {
-    background: #ffffff;
-    padding: 1.8rem;
-    margin-bottom: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid #e2d9f3;
-    box-shadow: 0 4px 12px rgba(108, 74, 182, 0.08);
+    background: var(--card-bg);
+    padding: 2.2rem;
+    margin-bottom: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -5px rgba(92, 59, 142, 0.12);
 }
 
 h2 {
-    color: #4a306d;
-    border-bottom: 2px solid #8d6ec8;
-    padding-bottom: 0.4rem;
+    color: var(--primary);
+    font-size: 1.45rem;
+    font-weight: 700;
     margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.6rem;
 }
 
-/* Tabela de Informações */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1.025rem;
+}
+
+/* Listas estilizadas */
+ul {
+    list-style: none;
+    margin-top: 0.8rem;
+}
+
+ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+}
+
+ul li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.4rem;
+    position: absolute;
+    left: 0.3rem;
+    top: -0.2rem;
+}
+
+/* Tabela moderna */
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1.2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 th, td {
-    padding: 0.8rem;
+    padding: 1rem 1.2rem;
     text-align: left;
-    border-bottom: 1px solid #e8e0f5;
 }
 
 th {
-    background-color: #6c4ab6;
+    background-color: var(--primary);
     color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
-tr:nth-child(even) {
-    background-color: #f8f5fc;
+td {
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+    background-color: #ffffff;
 }
 
-/* Estilização do Botão de Curiosidades */
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) td {
+    background-color: #faf7fd;
+}
+
+/* Botão interativo */
 #btn-curiosidade {
-    background: linear-gradient(135deg, #6c4ab6, #8d6ec8);
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: #ffffff;
     border: none;
-    padding: 0.9rem 1.6rem;
+    padding: 0.9rem 1.8rem;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 8px;
+    font-family: inherit;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 1.2rem;
-    box-shadow: 0 4px 8px rgba(108, 74, 182, 0.25);
-    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 14px rgba(92, 59, 142, 0.25);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #btn-curiosidade:hover {
-    background: linear-gradient(135deg, #523493, #7a59b5);
-    box-shadow: 0 6px 12px rgba(108, 74, 182, 0.35);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92, 59, 142, 0.35);
 }
 
 #btn-curiosidade:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(108, 74, 182, 0.2);
 }
 
 /* Rodapé */
 footer {
     text-align: center;
-    padding: 1.5rem;
-    background-color: #2a2438;
-    color: #e2d9f3;
-    margin-top: 2rem;
+    padding: 2.5rem 1rem;
+    background-color: #1a1228;
+    color: #b1a6c4;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+/* Adaptabilidade para telas menores */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+
+    th, td {
+        padding: 0.75rem 0.8rem;
+        font-size: 0.9rem;
+    }
 }
