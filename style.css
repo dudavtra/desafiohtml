@@ -10,15 +10,14 @@
 }
 
 :root {
-    --bg-main: #f4f0fa;          /* Fundo lilás bem claro */
-    --card-bg: #ffffff;          /* Fundo dos blocos brancos */
-    --primary: #5c3b8e;          /* Roxo principal */
-    --primary-dark: #43286b;     /* Roxo escuro */
-    --accent: #8b5cf6;           /* Destaque lilás vibrante */
-    --text-main: #231934;        /* Texto escuro legível */
+    --bg-main: #e8dff5;          /* Fundo em tom lilás */
+    --card-bg: #ffffff;          /* Fundo dos cartões */
+    --primary-purple: #702963;   /* Roxo escuro para títulos */
+    --border-brown: #5c3a21;     /* Marrom para a borda da imagem */
+    --text-main: #231934;        /* Texto escuro principal */
     --text-muted: #5e5274;       /* Texto secundário */
-    --border-color: #e5dcf5;     /* Borda suave */
-    --shadow: 0 8px 20px rgba(92, 59, 142, 0.08);
+    --border-color: #d1c2e7;     /* Borda dos cartões */
+    --shadow: 0 8px 20px rgba(112, 41, 99, 0.1);
 }
 
 body {
@@ -28,13 +27,13 @@ body {
     color: var(--text-main);
 }
 
-/* Header topo com tom lilás e roxo */
+/* Header estilizado */
 header {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, #6d44ad 100%);
+    background: linear-gradient(135deg, #4a154b 0%, #702963 100%);
     color: #ffffff;
     text-align: center;
     padding: 4rem 1.5rem 3.5rem;
-    box-shadow: 0 4px 15px rgba(67, 40, 107, 0.15);
+    box-shadow: 0 4px 15px rgba(74, 21, 75, 0.2);
 }
 
 header h1 {
@@ -45,7 +44,7 @@ header h1 {
 
 header p {
     font-size: 1.15rem;
-    color: #e8dcfc;
+    color: #f3e8f8;
 }
 
 /* Área central de conteúdo */
@@ -55,14 +54,14 @@ main {
     padding: 0 1.25rem 2rem;
 }
 
-/* Estilo do container da Imagem */
+/* Container da Imagem com borda marrom */
 .hero-image-container {
     width: 100%;
     margin-bottom: 1.8rem;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
+    border: 4px solid var(--border-brown); /* Borda da foto em marrom */
     background-color: var(--card-bg);
 }
 
@@ -83,9 +82,9 @@ section {
     box-shadow: var(--shadow);
 }
 
-/* Títulos h2 estilizados */
+/* Títulos h2 na cor roxa */
 h2 {
-    color: var(--primary);
+    color: var(--primary-purple); /* Títulos em roxo */
     font-size: 1.45rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -100,7 +99,7 @@ h2::after {
     left: 0;
     width: 45px;
     height: 3px;
-    background-color: var(--accent);
+    background-color: var(--primary-purple);
     border-radius: 2px;
 }
 
@@ -109,7 +108,7 @@ p {
     font-size: 1rem;
 }
 
-/* Listas com marcador roxo */
+/* Listas com marcadores na cor roxa */
 ul {
     list-style: none;
     margin-top: 0.8rem;
@@ -124,7 +123,7 @@ ul li {
 
 ul li::before {
     content: "•";
-    color: var(--accent);
+    color: var(--primary-purple);
     font-weight: bold;
     font-size: 1.4rem;
     position: absolute;
@@ -149,7 +148,7 @@ th, td {
 }
 
 th {
-    background-color: var(--primary);
+    background-color: var(--primary-purple);
     color: #ffffff;
     font-weight: 600;
     font-size: 0.95rem;
@@ -167,20 +166,20 @@ tr:last-child td {
 }
 
 tr:nth-child(even) td {
-    background-color: #faf7fd;
+    background-color: #f8f4fb;
 }
 
 /* Rodapé */
 footer {
     text-align: center;
     padding: 2.5rem 1rem;
-    background-color: #1a1228;
-    color: #b1a6c4;
+    background-color: #2e0f31;
+    color: #e3d2e6;
     font-size: 0.9rem;
     margin-top: 3rem;
 }
 
-/* Ajustes para celular */
+/* Ajustes para celulares */
 @media (max-width: 600px) {
     header h1 {
         font-size: 2rem;
