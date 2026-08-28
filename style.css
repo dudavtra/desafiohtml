@@ -1,3 +1,4 @@
+
 /* Configurações Globais */
 * {
     box-sizing: border-box;
@@ -8,13 +9,13 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f3effa; /* Fundo suave em tom lilás */
+    background-color: #f3effa;
     color: #2a2438;
 }
 
 /* Cabeçalho */
 header {
-    background: linear-gradient(135deg, #4a306d, #6c4ab6); /* Gradiente lilás escuro */
+    background: linear-gradient(135deg, #4a306d, #6c4ab6);
     color: #ffffff;
     text-align: center;
     padding: 3rem 1rem;
@@ -76,26 +77,30 @@ tr:nth-child(even) {
     background-color: #f8f5fc;
 }
 
-/* Botão Interativo */
-button {
-    background-color: #6c4ab6;
+/* Estilização do Botão de Curiosidades */
+#btn-curiosidade {
+    background: linear-gradient(135deg, #6c4ab6, #8d6ec8);
     color: #ffffff;
     border: none;
-    padding: 0.8rem 1.4rem;
+    padding: 0.9rem 1.6rem;
     font-size: 1rem;
-    font-weight: bold;
-    border-radius: 6px;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 1rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 1.2rem;
+    box-shadow: 0 4px 8px rgba(108, 74, 182, 0.25);
+    transition: all 0.2s ease-in-out;
 }
 
-button:hover {
-    background-color: #523493;
+#btn-curiosidade:hover {
+    background: linear-gradient(135deg, #523493, #7a59b5);
+    box-shadow: 0 6px 12px rgba(108, 74, 182, 0.35);
+    transform: translateY(-2px);
 }
 
-button:active {
-    transform: scale(0.98);
+#btn-curiosidade:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(108, 74, 182, 0.2);
 }
 
 /* Rodapé */
@@ -106,5 +111,3 @@ footer {
     color: #e2d9f3;
     margin-top: 2rem;
 }
-
-
