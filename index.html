@@ -1,301 +1,265 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo do Urso-Pardo</title>
+    <title>O Urso Pardo Surrealista</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg-dark: #0b0512;
+            --purple-deep: #1a0b2e;
+            --purple-mid: #3a155c;
+            --violet-glow: #8a2be2;
+            --neon-magenta: #d154ff;
+            --text-light: #f3e8ff;
         }
 
-        :root {
-            --bg-main: #e8dff5;          /* Fundo lilás */
-            --card-bg: #ffffff;          /* Fundo dos cartões */
-            --primary-purple: #702963;   /* Roxo escuro para títulos */
-            --border-brown: #5c3a21;     /* Borda da imagem em marrom */
-            --text-main: #231934;        /* Texto principal */
-            --text-muted: #5e5274;       /* Texto secundário */
-            --border-color: #d1c2e7;     /* Borda dos cartões */
-            --shadow: 0 8px 20px rgba(112, 41, 99, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            line-height: 1.7;
-            background-color: var(--bg-main);
-            color: var(--text-main);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 30%, #2a0845 0%, var(--bg-dark) 70%);
         }
 
+        /* Nav Header */
         header {
-            background: linear-gradient(135deg, #4a154b 0%, var(--primary-purple) 100%);
-            color: #ffffff;
-            text-align: center;
-            padding: 4rem 1.5rem 3.5rem;
-            box-shadow: 0 4px 15px rgba(74, 21, 75, 0.2);
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: #f3e8f8;
-        }
-
-        main {
-            max-width: 820px;
-            margin: -1.5rem auto 0;
-            padding: 0 1.25rem 2rem;
-        }
-
-        .hero-image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(26, 11, 46, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
             width: 100%;
-            margin-bottom: 1.8rem;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 4px solid var(--border-brown);
-            background-color: var(--card-bg);
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
         }
 
-        .hero-image-container img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            display: block;
-        }
-
-        section {
-            background: var(--card-bg);
-            padding: 2rem;
-            margin-bottom: 1.8rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-        }
-
-        h2 {
-            color: var(--primary-purple);
-            font-size: 1.45rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 0.6rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 45px;
-            height: 3px;
-            background-color: var(--primary-purple);
-            border-radius: 2px;
-        }
-
-        p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        ul {
-            list-style: none;
-            margin-top: 0.8rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
-            color: var(--text-muted);
-        }
-
-        ul li::before {
-            content: "•";
-            color: var(--primary-purple);
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            font-size: 1.4rem;
-            position: absolute;
-            left: 0.3rem;
-            top: -0.2rem;
+            color: var(--neon-magenta);
+            text-shadow: 0 0 10px var(--violet-glow);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-magenta);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 0 0 20px var(--neon-magenta), 0 0 40px var(--violet-glow);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            color: #cbb4e9;
+            margin-bottom: 2rem;
+        }
+
+        .btn-glow {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--purple-mid), var(--violet-glow));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--violet-glow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-glow:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--neon-magenta);
+        }
+
+        /* Seção de Conteúdo */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--neon-magenta);
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        /* Grid dos Cards Surrealistas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(26, 11, 46, 0.6);
+            border: 1px solid rgba(209, 84, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-magenta);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+        }
+
+        .card h3 {
+            color: var(--neon-magenta);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #d1c4e9;
+            line-height: 1.6;
+        }
+
+        /* Tabela Mística */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
         }
 
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 1.2rem;
-            border-radius: 12px;
+            border-collapse: collapse;
+            background: rgba(26, 11, 46, 0.4);
+            border-radius: 10px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
         }
 
         th, td {
-            padding: 0.9rem 1.2rem;
+            padding: 1rem;
             text-align: left;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
         }
 
         th {
-            background-color: var(--primary-purple);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
+            background-color: var(--purple-mid);
+            color: var(--neon-magenta);
         }
 
-        td {
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-muted);
-            background-color: #ffffff;
+        tr:hover {
+            background-color: rgba(138, 43, 226, 0.1);
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:nth-child(even) td {
-            background-color: #f8f4fb;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2.5rem 1rem;
-            background-color: #2e0f31;
-            color: #e3d2e6;
-            font-size: 0.9rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .hero-image-container img {
-                height: 240px;
-            }
-            
-            section {
-                padding: 1.4rem;
-            }
-
-            th, td {
-                padding: 0.7rem 0.8rem;
-                font-size: 0.9rem;
-            }
+            padding: 2rem;
+            background: var(--purple-deep);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+            color: #9c88be;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>O Urso-Pardo</h1>
-        <p>Conheça um dos maiores predadores terrestres do planeta</p>
+        <div class="logo">URSO·SURREAL</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#visoes">Visões</a>
+            <a href="#atributos">Atributos</a>
+        </nav>
     </header>
 
-    <main>
-        <div class="hero-image-container">
-            <img src="https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?q=80&w=800&auto=format&fit=crop" alt="Urso-pardo na natureza">
+    <section id="inicio" class="hero">
+        <h1>O Urso Pardo Cósmico</h1>
+        <p>Uma jornada através das florestas violetas da mente, onde a gravidade se dobra à vontade do guardião ancestral.</p>
+        <a href="#visoes" class="btn-glow">Explorar a Ilusão</a>
+    </section>
+
+    <section id="visoes" class="section">
+        <h2 class="section-title">Manifestações Oníricas</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>O Rugido de Auroras</h3>
+                <p>O ursídeo abre a boca para ecoar não um som, mas constelações inteiras em tons de lilás e néon, reescrevendo o céu noturno.</p>
+            </div>
+            <div class="card">
+                <h3>Passos Fluídos</h3>
+                <p>Ao caminhar sobre os rios de mercúrio roxo, suas pegadas florescem em orquídeas cristalinas que levitam no ar.</p>
+            </div>
+            <div class="card">
+                <h3>Hibernação Atemporal</h3>
+                <p>Durante o sono de mil anos, o Urso Pardo dobra o próprio tecido do espaço-tempo, sonhando com galáxias roxas em expansão.</p>
+            </div>
         </div>
+    </section>
 
-        <section>
-            <h2>Sobre a Espécie</h2>
-            <p>O urso-pardo (<em>Ursus arctos</em>) é um grande mamífero carnívoro encontrado nas florestas e montanhas da América do Norte, Europa e Ásia. Eles são conhecidos por sua força impressionante, inteligência e excelentes habilidades de caça e escavação.</p>
-        </section>
-
-        <section>
-            <h2>Fatos Rápidos</h2>
+    <section id="atributos" class="section">
+        <h2 class="section-title">Anatomia Surreal</h2>
+        <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Característica</th>
-                        <th>Detalhe</th>
+                        <th>Elemento</th>
+                        <th>Estado Físico</th>
+                        <th>Efeito Místico</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Nome Científico</strong></td>
-                        <td><em>Ursus arctos</em></td>
+                        <td>Pelagem Ancestral</td>
+                        <td>Poeira Estelar Violeta</td>
+                        <td>Absorve a luz solar e a converte em névoa violeta.</td>
                     </tr>
                     <tr>
-                        <td><strong>Peso Médio</strong></td>
-                        <td>130 kg a 550 kg (machos) / 100 kg a 200 kg (fêmeas)</td>
+                        <td>Olhar Infinito</td>
+                        <td>Nebulosas em Fusão</td>
+                        <td>Revela visões do passado e caminhos alternativos.</td>
                     </tr>
                     <tr>
-                        <td><strong>Alimentação</strong></td>
-                        <td>Onívoro (peixes, frutas, raízes, insetos, pequenos e grandes mamíferos)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Velocidade Máxima</strong></td>
-                        <td>Até 50 km/h</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Expectativa de Vida</strong></td>
-                        <td>20 a 30 anos na natureza</td>
+                        <td>Garras de Cristal</td>
+                        <td>Quartzo Roxo Denso</td>
+                        <td>Capazes de rasgar o véu entre o sonho e a realidade.</td>
                     </tr>
                 </tbody>
             </table>
-        </section>
-
-        <section>
-            <h2>Subespécies Notáveis</h2>
-            <p>O urso-pardo possui várias subespécies ao redor do mundo, diferenciando-se em tamanho e comportamento devido ao ambiente:</p>
-            <ul>
-                <li><strong>Urso-Grizzly (<em>Ursus arctos horribilis</em>):</strong> Habitante do interior da América do Norte, famoso por seu cupim muscular nos ombros.</li>
-                <li><strong>Urso-de-Kodiak (<em>Ursus arctos middendorffi</em>):</strong> Vive no arquipélago Kodiak, no Alasca, sendo uma das maiores subespécies de urso do mundo.</li>
-                <li><strong>Urso-Pardo-Europeu (<em>Ursus arctos arctos</em>):</strong> Encontrado em florestas da Europa e da Rússia, geralmente menor que as variantes norte-americanas.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Habitat e Distribuição</h2>
-            <p>Historicamente, os ursos-pardos ocupavam grandes extensões da América do Norte, Europa, Ásia e até o norte da África. Atualmente, suas maiores populações concentram-se na Rússia, no Alasca, no Canadá e em algumas áreas protegidas da Europa Oriental e das Montanhas Rochosas.</p>
-        </section>
-
-        <section>
-            <h2>Dieta Oportunista</h2>
-            <p>Embora pertençam à ordem dos carnívoros, os ursos-pardos são onívoros extremamente adaptáveis. Sua dieta varia conforme a estação do ano:</p>
-            <ul>
-                <li><strong>Primavera:</strong> Brotamentos verdes, raízes, carcaças de animais e filhotes de grandes ungulados.</li>
-                <li><strong>Verão:</strong> Insetos, bagas, frutas silvestres e pequenos roedores.</li>
-                <li><strong>Outono:</strong> Frutas secas, nozes e peixes ricos em gordura para ganhar massa corpórea.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>A Época do Salmão</h2>
-            <p>No verão e no outono, a migração do salmão em rios da América do Norte e da Sibéria torna-se um evento vital. Os ursos reúnem-se nas cachoeiras para capturar os peixes que sobem a correnteza. Essa fonte concentrada de proteína e gordura é crucial para o acúmulo de reservas antes do período de hibernação.</p>
-        </section>
-
-        <section>
-            <h2>Temporada de Reprodução</h2>
-            <p>O acasalamento ocorre entre maio e julho. A espécie apresenta uma característica biológica chamada <strong>implantação retardada</strong>: o óvulo fertilizado só se fixa no útero no outono, caso a fêmea tenha conseguido acumular gordura suficiente. Os filhotes (geralmente de 1 a 3) nascem durante a hibernação, dentro da toca, totalmente dependentes do leite materno.</p>
-        </section>
-
-        <section>
-            <h2>Relação e Convivência entre Machos</h2>
-            <p>Os ursos-pardos são animais predominantemente solitários e territorialistas. No entanto, em locais de abundância de alimentos — como rios com fluxo de salmão —, eles toleram a presença uns dos outros. Uma hierarquia social temporária é estabelecida com base no tamanho, idade e agressividade dos machos maiores, evitando confrontos diretos desnecessários.</p>
-        </section>
-
-        <section>
-            <h2>Comportamento e Defesa</h2>
-            <p>Os ursos-pardos tendem a evitar o contato com seres humanos. Contudo, podem se tornar agressivos caso sejam surpreendidos, sintam que seu alimento está ameaçado ou quando uma fêmea percebe risco para seus filhotes. Sua corcova muscular característica nas costas fornece força para escavar tocas e mover rochas pesadas.</p>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 - Projeto Educativo Vida Selvagem</p>
+        <p>&copy; 2026 O Urso Pardo Surrealista — Reino do Roxo Astral.</p>
     </footer>
 
 </body>
