@@ -1,0 +1,289 @@
+/* ==========================================
+   VARIÁVEIS DE CORES VIBRANTES E NEON
+   ========================================== */
+:root {
+    --bg-dark: #05020a;
+    --purple-deep: #120429;
+    --purple-mid: #2e0854;
+    --purple-bright: #7928ca;
+    --violet-glow: #9d4edd;
+    --neon-magenta: #ff007f;
+    --neon-cyan: #00f0ff;
+    --text-light: #f8f0ff;
+    --text-muted: #d0bfff;
+}
+
+/* ==========================================
+   ANIMATION KEYFRAMES
+   ========================================== */
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px var(--neon-magenta), 0 0 20px var(--violet-glow), 0 0 40px var(--purple-bright);
+    }
+    50% {
+        text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-magenta), 0 0 50px var(--violet-glow);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ==========================================
+   RESET E FUNDO ANIMADO
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+    /* Fundo gradiente animado multicores em roxo e magenta */
+    background: linear-gradient(-45deg, #05020a, #1a0033, #2e0854, #4a00e0, #8e2de2);
+    background-size: 400% 400%;
+    animation: backgroundShift 15s ease infinite;
+    background-attachment: fixed;
+}
+
+/* ==========================================
+   CABEÇALHO COM VIDRO E NEON
+   ========================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 8%;
+    background: rgba(18, 4, 41, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(255, 0, 127, 0.4);
+    box-shadow: 0 4px 30px rgba(121, 40, 202, 0.3);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: textGlow 4s infinite alternate;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 2.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 12px var(--neon-cyan);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--neon-magenta), var(--neon-cyan));
+    transition: width 0.3s ease;
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   SEÇÃO HERO (DESTAQUE CÓSMICO)
+   ========================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #ffffff;
+    animation: textGlow 3s infinite alternate;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    max-width: 650px;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Botão Pulsação Neon */
+.btn-glow {
+    padding: 16px 40px;
+    background: linear-gradient(45deg, var(--neon-magenta), var(--purple-bright), var(--neon-cyan));
+    background-size: 200% 200%;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 0 25px var(--neon-magenta);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-glow:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 45px var(--neon-cyan), 0 0 20px #fff;
+    background-position: right center;
+}
+
+/* ==========================================
+   CARDS COM BORDA INTERATIVA EM GRADIENTE
+   ========================================== */
+.section {
+    padding: 7rem 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: textGlow 4s infinite alternate;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.card {
+    position: relative;
+    background: rgba(18, 4, 41, 0.7);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(157, 78, 221, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    border-color: var(--neon-magenta);
+    box-shadow: 0 15px 35px rgba(255, 0, 127, 0.4), 0 0 15px rgba(0, 240, 255, 0.2);
+    background: rgba(46, 8, 84, 0.6);
+}
+
+.card h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* ==========================================
+   TABELA ESTILO CYBERPUNK/SURREAL
+   ========================================== */
+.table-container {
+    overflow-x: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(121, 40, 202, 0.4);
+    border: 1px solid rgba(255, 0, 127, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(18, 4, 41, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+th, td {
+    padding: 1.4rem 1.8rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+th {
+    background: linear-gradient(90deg, var(--purple-mid), var(--purple-bright));
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px var(--neon-magenta);
+}
+
+td {
+    color: var(--text-light);
+    transition: background 0.3s;
+}
+
+tr:hover td {
+    background-color: rgba(255, 0, 127, 0.15);
+    color: var(--neon-cyan);
+}
+
+/* ==========================================
+   RODAPÉ (FOOTER)
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 3rem;
+    background: var(--purple-deep);
+    border-top: 2px solid var(--purple-bright);
+    color: var(--text-muted);
+    font-size: 1rem;
+    box-shadow: 0 -10px 30px rgba(121, 40, 202, 0.3);
+}
