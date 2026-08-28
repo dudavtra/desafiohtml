@@ -1,26 +1,25 @@
-
 /* ==========================================
-   VARIAVEIS DE CORES E IDENTIDADE VISUAL
+   VARIÁVEIS DE CORES E ILUMINAÇÃO
    ========================================== */
 :root {
-    --bg-dark: #08030d;
-    --purple-deep: #140726;
-    --purple-mid: #2d0d4e;
-    --purple-bright: #5e17eb;
-    --violet-glow: #8a2be2;
-    --neon-magenta: #d154ff;
-    --text-light: #f3e8ff;
-    --text-muted: #bda3e6;
+    --bg-dark: #040108;
+    --purple-deep: #160228;
+    --purple-vivid: #6a0ded;
+    --violet-glow: #9d4edd;
+    --neon-pink: #ff007f;
+    --neon-cyan: #00f0ff;
+    --text-primary: #ffffff;
+    --text-secondary: #d8c7ff;
 }
 
 /* ==========================================
-   RESET E CONFIGURAÇÕES GERAIS
+   RESET & REGRAS GERAIS
    ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 html {
@@ -29,243 +28,226 @@ html {
 
 body {
     background-color: var(--bg-dark);
-    color: var(--text-light);
+    color: var(--text-primary);
     overflow-x: hidden;
-    /* Fundo dinâmico em gradiente radial roxo */
+    position: relative;
     background-image: 
-        radial-gradient(circle at 20% 20%, rgba(94, 23, 235, 0.25) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(209, 84, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 15% 20%, rgba(106, 13, 237, 0.3) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255, 0, 127, 0.25) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, var(--purple-deep) 0%, var(--bg-dark) 100%);
     background-attachment: fixed;
 }
 
 /* ==========================================
-   CABEÇALHO E NAVEGAÇÃO
+   NAVEGAÇÃO (HEADER)
    ========================================== */
-header {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 8%;
-    background: rgba(20, 7, 38, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(22, 2, 40, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(209, 84, 255, 0.2);
+    border-bottom: 1px solid rgba(157, 78, 221, 0.3);
 }
 
 .logo {
     font-size: 1.6rem;
     font-weight: 900;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 0 0 8px var(--neon-magenta), 0 0 20px var(--violet-glow);
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    text-shadow: 0 0 10px var(--violet-glow);
 }
 
-nav a {
-    color: var(--text-light);
+.logo span {
+    color: var(--neon-pink);
+}
+
+.nav-links a {
+    color: var(--text-secondary);
     text-decoration: none;
-    margin-left: 2.5rem;
-    font-weight: 500;
+    margin-left: 2rem;
+    font-weight: 600;
     transition: all 0.3s ease;
-    position: relative;
 }
 
-nav a:hover {
-    color: var(--neon-magenta);
-    text-shadow: 0 0 10px var(--neon-magenta);
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--neon-magenta);
-    transition: width 0.3s ease;
-    box-shadow: 0 0 8px var(--neon-magenta);
-}
-
-nav a:hover::after {
-    width: 100%;
+.nav-links a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
 }
 
 /* ==========================================
-   SEÇÃO HERO (DESTAQUE)
+   SEÇÃO PRINCIPAL (HERO)
    ========================================== */
-.hero {
+.hero-section {
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 2rem;
-    position: relative;
 }
 
-.hero h1 {
+.tag-surreal {
+    display: inline-block;
+    padding: 6px 18px;
+    background: rgba(255, 0, 127, 0.15);
+    border: 1px solid var(--neon-pink);
+    color: var(--neon-pink);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+.hero-content h1 {
     font-size: 4.5rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-shadow: 
-        0 0 10px var(--neon-magenta),
-        0 0 30px var(--purple-bright),
-        0 0 60px var(--violet-glow);
-    margin-bottom: 1.2rem;
+    font-weight: 900;
     line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px var(--violet-glow), 0 0 40px var(--purple-vivid);
 }
 
-.hero p {
-    font-size: 1.4rem;
+.hero-content p {
+    font-size: 1.25rem;
     max-width: 650px;
-    color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    margin: 0 auto 2.5rem;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
-/* Botão com efeito Neon */
-.btn-glow {
-    padding: 14px 36px;
-    background: linear-gradient(135deg, var(--purple-bright), var(--violet-glow));
-    color: #fff;
-    font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 0 20px var(--purple-bright);
-    transition: all 0.4s ease;
-    text-decoration: none;
+.btn-main {
     display: inline-block;
+    padding: 16px 38px;
+    background: linear-gradient(135deg, var(--purple-vivid), var(--neon-pink));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 40px;
+    box-shadow: 0 0 25px rgba(106, 13, 237, 0.6);
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.btn-glow:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 35px var(--neon-magenta), 0 0 15px #fff;
-    background: linear-gradient(135deg, var(--violet-glow), var(--neon-magenta));
+.btn-main:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 0 35px var(--neon-cyan);
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
+    color: #000;
 }
 
 /* ==========================================
-   SEÇÕES GERAIS E GRIDS
+   CARDS DE CONTEÚDO
    ========================================== */
-.section {
-    padding: 6rem 10%;
+.section-container {
+    padding: 6rem 8%;
 }
 
-.section-title {
+.title-glow {
     text-align: center;
     font-size: 2.8rem;
-    margin-bottom: 3.5rem;
-    color: #fff;
+    margin-bottom: 4rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 15px var(--violet-glow);
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 15px var(--violet-glow);
-    position: relative;
 }
 
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--neon-magenta);
-    margin: 10px auto 0;
-    border-radius: 2px;
-    box-shadow: 0 0 10px var(--neon-magenta);
-}
-
-/* Cards Surrealistas em Grid */
-.grid {
+.grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
 }
 
-.card {
-    background: rgba(20, 7, 38, 0.5);
-    border: 1px solid rgba(138, 43, 226, 0.3);
+.card-item {
+    background: rgba(22, 2, 40, 0.5);
+    border: 1px solid rgba(157, 78, 221, 0.25);
     border-radius: 20px;
     padding: 2.5rem;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    backdrop-filter: blur(10px);
     transition: all 0.4s ease;
 }
 
-.card:hover {
+.card-item:hover {
     transform: translateY(-8px);
-    border-color: var(--neon-magenta);
-    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.4);
-    background: rgba(45, 13, 78, 0.4);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 15px 35px rgba(106, 13, 237, 0.4);
 }
 
-.card h3 {
-    color: var(--neon-magenta);
+.card-badge {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--neon-pink);
     margin-bottom: 1rem;
-    font-size: 1.6rem;
-    text-shadow: 0 0 8px rgba(209, 84, 255, 0.4);
 }
 
-.card p {
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-size: 1.05rem;
+.card-item h3 {
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+}
+
+.card-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 /* ==========================================
-   TABELA MÍSTICA
+   TABELA ESTILIZADA
    ========================================== */
-.table-container {
+.table-glass {
     overflow-x: auto;
-    margin-top: 1rem;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(94, 23, 235, 0.2);
+    border-radius: 16px;
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    box-shadow: 0 0 25px rgba(22, 2, 40, 0.8);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(20, 7, 38, 0.6);
-    backdrop-filter: blur(5px);
+    background: rgba(10, 1, 20, 0.7);
 }
 
 th, td {
-    padding: 1.2rem 1.5rem;
+    padding: 1.3rem 1.6rem;
     text-align: left;
-    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    border-bottom: 1px solid rgba(157, 78, 221, 0.15);
 }
 
 th {
-    background-color: var(--purple-mid);
-    color: var(--neon-magenta);
-    font-size: 1.1rem;
+    background: var(--purple-deep);
+    color: var(--neon-pink);
+    font-size: 1.05rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 td {
-    color: var(--text-light);
+    color: var(--text-primary);
 }
 
 tr:hover td {
-    background-color: rgba(138, 43, 226, 0.15);
-    color: #fff;
+    background: rgba(106, 13, 237, 0.2);
+    color: var(--neon-cyan);
 }
 
 /* ==========================================
-   RODAPÉ (FOOTER)
+   RODAPÉ
    ========================================== */
 footer {
     text-align: center;
     padding: 2.5rem;
-    background: var(--purple-deep);
-    border-top: 1px solid rgba(138, 43, 226, 0.3);
-    color: var(--text-muted);
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(157, 78, 221, 0.2);
+    color: var(--text-secondary);
     font-size: 0.95rem;
 }
